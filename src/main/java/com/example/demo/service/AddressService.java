@@ -20,4 +20,9 @@ public interface AddressService {
 	
 	public List<AddressBoundary> getAddressByCreatedTimestamp(String email, String value, String sortBy,
 			String sortOrder, int page, int size);
+	
+	public List<AddressBoundary> getAddressesByPriority(String user, String value, String sortBy, String 
+			sortOrder, int page, int size);
+
+	public void delete(String addressId);
 }

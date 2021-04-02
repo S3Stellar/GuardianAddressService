@@ -19,4 +19,9 @@ public interface AddressDao extends PagingAndSortingRepository<Address, String> 
 			@Param("user") String user,
 			@Param("date") Date date,
 			Pageable pageable);
+	
+	public List<Address> findAllByUserAndPriorityGreaterThanEqual(
+			@Param("user") String user,
+			@Param("priority") int priority,
+			Pageable pageable);
 }

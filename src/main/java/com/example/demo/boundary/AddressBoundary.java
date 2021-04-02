@@ -10,21 +10,23 @@ public class AddressBoundary {
 	private String cityName;
 	private Date createdTimestamp;
 	private LocationBoundary location;
-
+	private int priority;
+	
 	public AddressBoundary() {
 		super();
 	}
 
-	public AddressBoundary(String user, String cityAddress, String cityName, LocationBoundary location) {
+	public AddressBoundary(String user, String cityAddress, String cityName, LocationBoundary location, int priority) {
 		super();
 		this.user = user;
 		this.cityAddress = cityAddress;
 		this.cityName = cityName;
 		this.location = location;
+		this.priority = priority;
 	}
 
 	public AddressBoundary(String id, String user, String cityAddress, String cityName, Date createdTimestamp,
-			LocationBoundary location) {
+			LocationBoundary location, int priority) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -32,6 +34,7 @@ public class AddressBoundary {
 		this.cityName = cityName;
 		this.createdTimestamp = createdTimestamp;
 		this.location = location;
+		this.priority = priority;
 	}
 
 	public String getId() {
@@ -82,10 +85,26 @@ public class AddressBoundary {
 	public void setLocation(LocationBoundary location) {
 		this.location = location;
 	}
+	
+	
+
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
 
 	@Override
 	public String toString() {
-		return "AddressBoundary [id=" + id + ", cityAddress=" + cityAddress + ", cityName=" + cityName
-				+ ", createdTimestamp=" + createdTimestamp + ", location=" + location + "]";
+		return "AddressBoundary [id=" + id + ", user=" + user + ", cityAddress=" + cityAddress + ", cityName="
+				+ cityName + ", createdTimestamp=" + createdTimestamp + ", location=" + location + ", priority="
+				+ priority + "]";
 	}
+	
+	
+
+	
+	
 }

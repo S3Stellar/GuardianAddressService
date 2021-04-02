@@ -14,7 +14,8 @@ public class Address {
 	private String cityName;
 	private Date createdTimestamp;
 	private Location location;
-
+	private int priority;
+	
 	public Address() {
 		super();
 	}
@@ -28,17 +29,18 @@ public class Address {
 	}
 
 	public Address(String user, String cityAddress, String cityName, Date createdTimestamp,
-			Location location) {
+			Location location, int priority) {
 		super();
 		this.user = user;
 		this.cityAddress = cityAddress;
 		this.cityName = cityName;
 		this.createdTimestamp = createdTimestamp;
 		this.location = location;
+		this.priority = priority;
 	}
 	
 	public Address(String id, String user, String cityAddress, String cityName, Date createdTimestamp,
-			Location location) {
+			Location location, int priority) {
 		super();
 		this.id = id;
 		this.user = user;
@@ -46,6 +48,7 @@ public class Address {
 		this.cityName = cityName;
 		this.createdTimestamp = createdTimestamp;
 		this.location = location;
+		this.priority = priority;
 	}
 
 	public String getId() {
@@ -94,6 +97,15 @@ public class Address {
 
 	public void setLocation(Location location) {
 		this.location = location;
+	}
+
+	
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
 	}
 
 	@Override

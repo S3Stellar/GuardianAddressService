@@ -20,7 +20,7 @@ public class AddressConverter {
 				addressBoundary.getCityName(),
 				new Date(),
 				new Location(addressBoundary.getLocation().getLat(),
-						addressBoundary.getLocation().getLng()));
+						addressBoundary.getLocation().getLng()),addressBoundary.getPriority());
 	}
 
 	public AddressBoundary toBoundary(Address address) {
@@ -32,6 +32,6 @@ public class AddressConverter {
 				address.getCityName(),
 				address.getCreatedTimestamp(),
 				new LocationBoundary(address.getLocation().getLat(),
-						address.getLocation().getLng()));
+						address.getLocation().getLng()), address.getPriority());
 	}
 }

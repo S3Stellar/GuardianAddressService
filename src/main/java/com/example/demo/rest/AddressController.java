@@ -29,7 +29,7 @@ public class AddressController {
 
 	@RequestMapping(path = "/addresses/{addressId}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public AddressBoundary getSpecificAddress(@PathVariable("addressId") String addressId) {
-		return this.getSpecificAddress(addressId);
+		return this.addressService.getSpecificAddress(addressId);
 	}
 
 	@RequestMapping(path = "/addresses/{addressId}", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
@@ -52,6 +52,9 @@ public class AddressController {
 			@RequestParam(name = "size", required = false, defaultValue = "10") int size) {
 
 		switch (type) {
+		case RouteFilterType.BY_PRIORITY:
+			return this.addressService.getAddressesByPriority(user, value, sortBy, sortOrder, page, size)
+					.toArray(new AddressBoundary[0]);
 		case RouteFilterType.BY_CREATED_TIMESTAMP:
 			return this.addressService.getAddressByCreatedTimestamp(user, value, sortBy, sortOrder, page, size)
 					.toArray(new AddressBoundary[0]);
@@ -60,6 +63,11 @@ public class AddressController {
 					.toArray(new AddressBoundary[0]);
 		}
 
+	}
+
+	@RequestMapping(path = "/addresses/{addressId}", method = RequestMethod.DELETE)
+	public void delete(@PathVariable("addressId") String addressId) {
+		this.addressService.delete(addressId);
 	}
 
 }
